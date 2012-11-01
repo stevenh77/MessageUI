@@ -36,12 +36,6 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="60" />
             </Grid.ColumnDefinitions>
-
-            <Button Content="X"
-                    Grid.Column="2"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Margin="0,5,10,0" />
             
             <TextBlock x:Name="CloseButtonTextBlock" Text="X"  Cursor="Hand" FontWeight="ExtraBold" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" >
             	<i:Interaction.Triggers>

@@ -7,7 +7,7 @@
 	<Grid x:Name="LayoutRoot" Background="White">
 		
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="240" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 
