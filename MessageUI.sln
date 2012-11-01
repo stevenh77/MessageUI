@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MessageUISite", "MessageUISite\", "{B2E0B3FB-C594-4F1E-9948-403932330919}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/MessageUISite"
+		Debug.AspNetCompiler.PhysicalPath = "MessageUISite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\MessageUISite\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/MessageUISite"
+		Release.AspNetCompiler.PhysicalPath = "MessageUISite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\MessageUISite\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55216"
+		ProjOutputReferences = "{99324147-cba9-4ce4-9b27-f33d3f4ca364}|ClientBin|false;"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageUI", "MessageUI\MessageUI.csproj", "{99324147-CBA9-4CE4-9B27-F33D3F4CA364}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2E0B3FB-C594-4F1E-9948-403932330919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E0B3FB-C594-4F1E-9948-403932330919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E0B3FB-C594-4F1E-9948-403932330919}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E0B3FB-C594-4F1E-9948-403932330919}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{99324147-CBA9-4CE4-9B27-F33D3F4CA364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99324147-CBA9-4CE4-9B27-F33D3F4CA364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99324147-CBA9-4CE4-9B27-F33D3F4CA364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99324147-CBA9-4CE4-9B27-F33D3F4CA364}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

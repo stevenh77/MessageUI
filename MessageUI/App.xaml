@@ -1,0 +1,15 @@
+﻿<Application
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MessageUI.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Brushes.xaml" />
+                <ResourceDictionary Source="Styles/DataTemplates.xaml" />
+                <ResourceDictionary Source="Styles/ListBoxStyles.xaml" />
+                <ResourceDictionary Source="Styles/ScrollBarStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

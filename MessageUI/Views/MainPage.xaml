@@ -1,0 +1,42 @@
+﻿<UserControl 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:local="clr-namespace:MessageUI"
+                xmlns:Controls="clr-namespace:MessageUI.Controls" 
+                x:Class="MessageUI.Views.MainPage">
+	
+	<Grid x:Name="LayoutRoot" Background="White">
+		
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+        <Button x:Name="AddMessage" 
+                Content="Add Message" 
+                Command="{Binding AddMessageCommand}"  
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="200" 
+                Margin="20,20,0,20" 
+                Height="50" />
+        
+        <Popup Grid.Column="1" x:Name="ToastPopupContainer" IsOpen="True">
+            <Controls:FluidItemsControl Grid.Column="1" 
+                                        x:Name="MessageList" 
+                                        ItemsSource="{Binding Messages, Mode=OneWay}" 
+                                        HorizontalAlignment="Right" 
+                                        VerticalAlignment="Top" 
+                                        Width="350" 
+                                        MaxHeight="585" 
+                                        IsTabStop="False" 
+                                        Margin="10,10,10,0">
+			    <Controls:FluidItemsControl.ItemTemplate>
+				    <DataTemplate>
+                        <local:MessageDataTemplateSelector Content="{Binding}"/>
+                    </DataTemplate>
+			    </Controls:FluidItemsControl.ItemTemplate>
+		    </Controls:FluidItemsControl>
+        </Popup>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,158 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="20,10,20,0" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="PathStyle" TargetType="Path">
+        <Setter Property="Stroke" Value="Transparent" />
+        <Setter Property="Fill" Value="White" />
+        <Setter Property="StrokeLineJoin" Value="Round" />
+        <Setter Property="Stretch" Value="Fill" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Width" Value="25" />
+    </Style>
+
+    <DataTemplate x:Key="InfoDataTemplate">
+        <Grid Background="#DCF9A938"  Height="140" Width="320">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content="X"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="0,5,10,0" />
+            
+            <TextBlock x:Name="CloseButtonTextBlock" Text="X"  Cursor="Hand" FontWeight="ExtraBold" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonUp">
+            			<i:InvokeCommandAction Command="{Binding CloseCommand}" CommandParameter="{Binding Id}"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </TextBlock>
+
+            <TextBlock Text="{Binding Text}" Grid.ColumnSpan="3" Style="{StaticResource TextBlockStyle}" Height="80" Width="280"/>
+
+            <TextBlock Text="{Binding Title}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockStyle}" />
+
+            <Path Grid.Row="1" Style="{StaticResource PathStyle}" Data="M 22.0625,1.33777C 39.2625,-4.26221 59.1292,8.27112 61.6625,26.0045C 65.1292,42.9377 51.9292,60.5378 34.8625,62.2711C 18.8625,64.8044 2.32917,52.6711 0.0625,36.5378C -3.00417,21.4711 7.2625,5.47113 22.0625,1.33777 Z M 22.0625,5.47113C 11.3958,9.07111 3.12917,19.8711 3.52917,31.3378C 2.99583,46.4044 17.2625,59.8711 32.1958,58.5378C 47.2625,58.2711 60.0625,43.6044 58.0625,28.6711C 56.9958,11.7378 37.9292,-0.395569 22.0625,5.47113 Z M 28.3292,16.1378C 31.2625,14.9378 36.0625,15.3378 35.9292,19.3378C 35.9292,23.3378 31.2625,23.3378 28.4625,22.5378L 28.5958,21.3378C 28.5958,20.0045 28.5958,18.6711 28.4625,17.3378L 28.3292,16.1378 Z M 28.5958,21.3378C 25.7958,22.1378 25.7958,16.5378 28.4625,17.3378C 28.5958,18.6711 28.5958,20.0045 28.5958,21.3378 Z M 28.8625,26.2711C 30.9958,26.1378 32.9958,26.0045 35.1292,26.0045C 35.2625,33.6044 35.2625,41.0711 35.1292,48.6711C 32.9958,48.5378 30.9958,48.5378 28.8625,48.4044C 30.0625,48.0045 32.3292,47.3378 33.5292,47.0711C 34.3292,40.5378 34.1958,34.1378 33.5292,27.6044C 32.3292,27.3378 30.0625,26.6711 28.8625,26.2711 Z M 28.8625,26.2711C 30.0625,26.6711 32.3292,27.3378 33.5292,27.6044C 34.1958,34.1378 34.3292,40.5378 33.5292,47.0711C 32.3292,47.3378 30.0625,48.0045 28.8625,48.4044C 28.9958,41.0711 28.9958,33.6044 28.8625,26.2711 Z "/>
+
+            <Path Grid.Row="1" Grid.Column="2" Style="{StaticResource PathStyle}" Data="M 0,40L 103.083,0L 103.083,202L 0,162L 0,40 Z M 81.2921,66.2667C 78.0659,65.4666 74.397,65.0667 70.2853,65.0667C 58.7305,65.0667 52.953,69.2354 52.953,77.5729L 52.953,86.6666L 77.2436,86.6666L 77.2436,95.0667L 52.953,95.0667L 52.953,146.667L 36.7592,146.667L 36.7592,95.0667L 18.5413,95.0667L 18.5413,86.6666L 36.7592,86.6666L 36.7592,76.9729C 36.7592,70.7104 39.8694,65.7604 46.0896,62.1229C 52.3098,58.4854 60.0694,56.6666 69.3681,56.6666C 74.3654,56.6666 78.3401,57.0166 81.2921,57.7167L 81.2921,66.2667 Z M 108.5,29L 196.5,29L 196.5,177.667L 108.5,177.667L 108.5,148.511L 163.5,102L 108.5,55.4894L 108.5,29 Z "/>
+
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="QuestionDataTemplate">
+        <Grid Background="#D759ABC3"  Height="140" Width="320">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="CloseButtonTextBlock" Text="X"  Cursor="Hand" FontWeight="ExtraBold" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonUp">
+            			<i:InvokeCommandAction Command="{Binding CloseCommand}" CommandParameter="{Binding Path=Id}"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </TextBlock>
+            
+            <TextBlock Text="{Binding Text}" Grid.ColumnSpan="3" Style="{StaticResource TextBlockStyle}" Height="80" Width="280"/>
+
+            <TextBlock Text="{Binding Title}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockStyle}" />
+
+            <Path Grid.Row="1" Style="{StaticResource PathStyle}" Data="M 22.1958,1.33777C 39.3958,-4.26224 59.2625,8.27112 61.7958,26.0044C 65.2625,42.9378 52.0625,60.5378 34.9958,62.2711C 18.8625,64.8044 2.4625,52.6711 0.0625,36.5378C -2.87083,21.4711 7.39583,5.4711 22.1958,1.33777 Z M 22.3292,5.4711C 11.5292,9.07111 3.2625,19.8711 3.6625,31.3378C 3.12917,46.4044 17.3958,59.8711 32.3292,58.5378C 47.3958,58.2711 60.1958,43.6044 58.1958,28.6711C 57.1292,11.7378 38.0625,-0.395569 22.3292,5.4711 Z M 24.7292,15.7378C 30.9958,11.8711 42.5958,14.6711 42.3292,23.3378C 43.1292,30.2711 34.0625,31.6044 33.3958,38.0044C 31.3958,38.0044 29.3958,38.0044 27.3958,37.8711C 27.6625,35.8711 27.7958,33.7378 28.5958,31.8711C 30.3292,29.0711 33.3958,27.3378 35.1292,24.5378C 35.3958,21.8711 33.1292,18.8044 30.1958,19.8711C 27.3958,20.2711 27.2625,23.7378 26.1958,25.7378C 23.9292,25.7378 21.6625,25.6044 19.3958,25.4711C 20.1958,21.8711 21.1292,17.7378 24.7292,15.7378 Z M 27.9292,41.6044C 29.5292,39.2044 32.5958,40.8044 34.4625,41.7378C 34.1958,43.7378 34.8625,46.8044 32.1958,47.6044C 28.7292,49.2044 25.1292,44.2711 27.9292,41.6044 Z "/>
+
+            <Path Grid.Row="1" Grid.Column="2" Style="{StaticResource PathStyle}" Data="M 0,40L 103.083,0L 103.083,202L 0,162L 0,40 Z M 81.2921,66.2667C 78.0659,65.4666 74.397,65.0667 70.2853,65.0667C 58.7305,65.0667 52.953,69.2354 52.953,77.5729L 52.953,86.6666L 77.2436,86.6666L 77.2436,95.0667L 52.953,95.0667L 52.953,146.667L 36.7592,146.667L 36.7592,95.0667L 18.5413,95.0667L 18.5413,86.6666L 36.7592,86.6666L 36.7592,76.9729C 36.7592,70.7104 39.8694,65.7604 46.0896,62.1229C 52.3098,58.4854 60.0694,56.6666 69.3681,56.6666C 74.3654,56.6666 78.3401,57.0166 81.2921,57.7167L 81.2921,66.2667 Z M 108.5,29L 196.5,29L 196.5,177.667L 108.5,177.667L 108.5,148.511L 163.5,102L 108.5,55.4894L 108.5,29 Z "/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SuccessDataTemplate">
+        <Grid Background="#E151A351" Height="140" Width="320">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="CloseButtonTextBlock" Text="X"  Cursor="Hand" FontWeight="ExtraBold" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonUp">
+            			<i:InvokeCommandAction Command="{Binding CloseCommand}" CommandParameter="{Binding Path=Id}"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </TextBlock>
+            
+            <TextBlock Text="{Binding Text}" Grid.ColumnSpan="3" Style="{StaticResource TextBlockStyle}" Height="80" Width="280"/>
+
+            <TextBlock Text="{Binding Title}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockStyle}" />
+
+            <Path Grid.Row="1" Style="{StaticResource PathStyle}" Data="M 22.0625,1.33466C 38.7292,-4.13202 58.1958,7.46799 61.5292,24.8013C 65.7958,42.0013 52.4625,60.5347 34.8625,62.268C 18.8625,64.8013 2.32917,52.668 0.0625,36.668C -3.00417,21.468 7.2625,5.46799 22.0625,1.33466 Z M 22.0625,5.46799C 10.8625,9.20132 2.59583,20.8013 3.52917,32.668C 3.79583,47.2013 17.6625,59.7346 32.1958,58.5347C 47.2625,58.268 60.0625,43.6013 58.0625,28.668C 56.9958,11.7346 37.9292,-0.398682 22.0625,5.46799 Z M 41.7958,17.6013C 43.3958,18.668 47.7958,19.868 45.7958,22.4013C 39.9292,29.7346 34.4625,37.6013 28.1958,44.5347C 23.7958,40.8013 20.3292,36.268 16.3292,32.1347C 13.9292,30.1347 17.6625,28.268 18.9958,26.9347C 22.4625,29.2013 24.7292,33.068 28.0625,35.7346C 32.4625,29.468 37.3958,23.7346 41.7958,17.6013 Z "/>
+
+            <Path Grid.Row="1" Grid.Column="2" Style="{StaticResource PathStyle}" Data="M 0,40L 103.083,0L 103.083,202L 0,162L 0,40 Z M 81.2921,66.2667C 78.0659,65.4666 74.397,65.0667 70.2853,65.0667C 58.7305,65.0667 52.953,69.2354 52.953,77.5729L 52.953,86.6666L 77.2436,86.6666L 77.2436,95.0667L 52.953,95.0667L 52.953,146.667L 36.7592,146.667L 36.7592,95.0667L 18.5413,95.0667L 18.5413,86.6666L 36.7592,86.6666L 36.7592,76.9729C 36.7592,70.7104 39.8694,65.7604 46.0896,62.1229C 52.3098,58.4854 60.0694,56.6666 69.3681,56.6666C 74.3654,56.6666 78.3401,57.0166 81.2921,57.7167L 81.2921,66.2667 Z M 108.5,29L 196.5,29L 196.5,177.667L 108.5,177.667L 108.5,148.511L 163.5,102L 108.5,55.4894L 108.5,29 Z " />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ErrorDataTemplate">
+        <Grid Background="#D5BD3630"  Height="140" Width="320">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="CloseButtonTextBlock" Text="X"  Cursor="Hand" FontWeight="ExtraBold" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonUp">
+            			<i:InvokeCommandAction Command="{Binding CloseCommand}" CommandParameter="{Binding Id}"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </TextBlock>
+
+            <TextBlock Text="{Binding Text}" Grid.ColumnSpan="3" Style="{StaticResource TextBlockStyle}" Height="80" Width="280"/>
+
+            <TextBlock Text="{Binding Title}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockStyle}" />
+
+            <Path Grid.Row="1" Style="{StaticResource PathStyle}" Data="M 22.0625,1.3432C 39.2625,-4.25677 59.1292,8.14319 61.6625,26.0099C 65.1292,42.9432 51.9292,60.5432 34.8625,62.2766C 18.8625,64.8099 2.32917,52.6765 0.0625,36.5432C -3.00417,21.4766 7.2625,5.47656 22.0625,1.3432 Z M 22.0625,5.47656C 11.3958,9.07654 3.12917,19.8765 3.52917,31.3432C 2.99583,46.4099 17.2625,59.8765 32.1958,58.5432C 47.2625,58.2766 60.0625,43.6099 58.0625,28.6765C 56.9958,11.7432 37.9292,-0.390137 22.0625,5.47656 Z M 18.4625,23.3432C 19.7958,21.8765 20.9958,20.5432 22.4625,19.4766C 25.2625,22.2766 28.0625,25.0765 30.9958,27.8765C 34.0625,25.2099 36.7292,22.0099 39.9292,19.4766C 41.1292,20.8099 42.3292,22.0099 43.5292,23.3432C 40.8625,26.4099 37.6625,29.0765 35.1292,32.2766C 38.0625,34.9432 40.8625,37.8765 43.5292,40.6765C 42.3292,42.0099 41.1292,43.3432 39.9292,44.6765C 36.7292,42.0099 34.0625,38.8099 30.9958,36.1432C 27.9292,38.9432 25.2625,42.1432 21.9292,44.6765C 20.8625,43.2099 19.6625,42.0099 18.5958,40.6765C 20.9958,37.7432 23.9292,35.2099 26.5958,32.4099C 25.1292,28.8099 20.8625,26.5432 18.4625,23.3432 Z "/>
+
+            <Path Grid.Row="1" Grid.Column="2" Style="{StaticResource PathStyle}" Data="M 0,40L 103.083,0L 103.083,202L 0,162L 0,40 Z M 81.2921,66.2667C 78.0659,65.4666 74.397,65.0667 70.2853,65.0667C 58.7305,65.0667 52.953,69.2354 52.953,77.5729L 52.953,86.6666L 77.2436,86.6666L 77.2436,95.0667L 52.953,95.0667L 52.953,146.667L 36.7592,146.667L 36.7592,95.0667L 18.5413,95.0667L 18.5413,86.6666L 36.7592,86.6666L 36.7592,76.9729C 36.7592,70.7104 39.8694,65.7604 46.0896,62.1229C 52.3098,58.4854 60.0694,56.6666 69.3681,56.6666C 74.3654,56.6666 78.3401,57.0166 81.2921,57.7167L 81.2921,66.2667 Z M 108.5,29L 196.5,29L 196.5,177.667L 108.5,177.667L 108.5,148.511L 163.5,102L 108.5,55.4894L 108.5,29 Z "/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
