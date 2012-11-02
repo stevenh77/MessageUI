@@ -7,9 +7,9 @@
 	<Grid x:Name="LayoutRoot" Background="White">
 		
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="240" />
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="380" />
+        </Grid.ColumnDefinitions>
 
         <Button x:Name="AddMessage" 
                 Content="Add Message" 
